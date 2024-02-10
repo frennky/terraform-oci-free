@@ -28,16 +28,18 @@ ssh-keygen -t rsa -b 4096 -C oci -f ~/.ssh/oci_free
 
 ## Configure backend
 
-Create bucket named `tfstate` and get [namespace](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/understandingnamespaces.htm). Save home region and endpoint details in `backend.conf` file.
+Create bucket named `tfstate` and get [namespace](https://docs.oracle.com/en-us/iaas/Content/Object/Tasks/understandingnamespaces.htm). Save home region and endpoint details in `backend.conf` file. This file can be created under git repo.
 
 ```bash
 region   = "<home region>"
-endpoint = "https://<namespace>.compat.objectstorage.<home region>.oraclecloud.com"
+endpoints = {
+  s3 = "https://<namespace>.compat.objectstorage.<home region>.oraclecloud.com"
+}
 ```
 
 For more details, check [docs](https://docs.oracle.com/en-us/iaas/Content/API/SDKDocs/terraformUsingObjectStore.htm).
 
-Go to `Profile >> My profile >> Customer secret keys` and `Generate secret key`. Create [Customer Secret key](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm#create-secret-key) and save access key and secret key in `credentials` file. 
+Go to `Profile >> My profile >> Customer secret keys` and `Generate secret key`. Create [Customer Secret key](https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm#create-secret-key) and save access key and secret key in `credentials` file. This file should be under `~/.oci` directory.
 
 ```bash
 [default]

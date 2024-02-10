@@ -1,5 +1,5 @@
 # Local .terraform directories
-**/.terraform/*
+**/.terraform/
 
 # .tfstate files
 *.tfstate
@@ -32,3 +32,4 @@ override.tf.json
 *.tfvars
 backend.conf
 credentials
+.vscode/

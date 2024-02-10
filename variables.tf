@@ -1,3 +1,9 @@
+variable "prefix" {
+  description = "Resource prefix identifier."
+  type        = string
+  default     = "free"
+}
+
 variable "user" {
   description = "The user OCID. This can be found in user settings in the Oracle Cloud Infrastructure console. Required if auth is set to 'ApiKey', ignored otherwise."
   type        = string
@@ -16,6 +22,12 @@ variable "tenancy" {
 variable "region" {
   description = "The region for API connections (e.g. us-ashburn-1)."
   type        = string
+}
+
+variable "vcn_cidr" {
+  description = "CIDR block for VCN."
+  type        = string
+  default     = "10.0.0.0/16"
 }
 
 variable "key_file" {
