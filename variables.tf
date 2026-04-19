@@ -1,15 +1,5 @@
-variable "tenancy_ocid" {
-  description = "The tenancy OCID for a user. The tenancy OCID can be found at the bottom of user settings in the Oracle Cloud Infrastructure console. Required if auth is set to 'ApiKey', ignored otherwise."
-  type        = string
-}
-
-variable "user_ocid" {
+variable "user" {
   description = "The user OCID. This can be found in user settings in the Oracle Cloud Infrastructure console. Required if auth is set to 'ApiKey', ignored otherwise."
-  type        = string
-}
-
-variable "private_key_path" {
-  description = "The path to the user's PEM formatted private key. A private_key or a private_key_path must be provided if auth is set to 'ApiKey', ignored otherwise."
   type        = string
 }
 
@@ -18,8 +8,18 @@ variable "fingerprint" {
   type        = string
 }
 
+variable "tenancy" {
+  description = "The tenancy OCID for a user. The tenancy OCID can be found at the bottom of user settings in the Oracle Cloud Infrastructure console. Required if auth is set to 'ApiKey', ignored otherwise."
+  type        = string
+}
+
 variable "region" {
   description = "The region for API connections (e.g. us-ashburn-1)."
+  type        = string
+}
+
+variable "key_file" {
+  description = "The path to the user's PEM formatted private key. A private_key or a private_key_path must be provided if auth is set to 'ApiKey', ignored otherwise."
   type        = string
 }
 
@@ -38,7 +38,7 @@ variable "image_operating_system_version" {
 variable "instance_hostname" {
   description = "A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information."
   type        = string
-  default     = "freetierinstance"
+  default     = "free"
 }
 
 variable "instance_shape" {
@@ -68,5 +68,5 @@ variable "instance_boot_volume_size" {
 variable "instance_public_key_path" {
   description = "Public SSH key to be included in the ~/.ssh/authorized_keys file for the default user on the instance."
   type        = string
-  default     = "~/.ssh/oci.pub"
+  default     = ""
 }

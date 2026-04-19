@@ -4,7 +4,7 @@
 # Use <tenancy-ocid> for the compartment OCID.
 
 data "oci_identity_availability_domains" "ads" {
-  compartment_id = var.tenancy_ocid
+  compartment_id = var.tenancy
 }
 
 # Docs https://registry.terraform.io/providers/oracle/oci/latest/docs/data-sources/core_images
@@ -13,7 +13,7 @@ data "oci_identity_availability_domains" "ads" {
 # Use <tenancy-ocid> for the compartment OCID.
 
 data "oci_core_images" "instance_images" {
-  compartment_id           = var.tenancy_ocid
+  compartment_id           = var.tenancy
   operating_system         = var.image_operating_system
   operating_system_version = var.image_operating_system_version
   shape                    = var.instance_shape
